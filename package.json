@@ -1,0 +1,27 @@
+{
+  "name": "file-metadata-microservice",
+  "version": "1.0.0",
+  "description": "API project for Free Code Camp",
+  "main": "bin/start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DCtheTall/file-data-microservice.git"
+  },
+  "author": "Dylan Cutler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DCtheTall/file-data-microservice/issues"
+  },
+  "homepage": "https://github.com/DCtheTall/file-data-microservice#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "morgan": "^1.8.2",
+    "pug": "^2.0.0-rc.2"
+  }
+}
