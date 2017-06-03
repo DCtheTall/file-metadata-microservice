@@ -3,6 +3,7 @@
 var fileUrl;
 
 function onButtonClick(event) {
+  document.getElementById('error').innerHTML = '';
   event.preventDefault();
   $('#file-input').trigger('click');
 }
@@ -10,6 +11,10 @@ function onButtonClick(event) {
 function displayFileName() {
   var file = document.getElementById('file-input').files[0];
   if (file) {
+    if (file.size > 1000000) {
+      document.getElementById('error').innerHTML = 'File size too big.';
+      return;
+    }
     var fr = new FileReader();
     fr.readAsDataURL(file);
     fr.addEventListener('load', function() {
@@ -27,7 +32,10 @@ function onSubmit() {
      .success((data) => {
        window.location.href = `/api/file/size?name=${data.filename}`;
      })
-     .error(err => console.log(err));
+     .error((err) => {
+       document.getElementById('error').innerHTML = 'Oops, something went wrong.';
+       console.log(err);
+     });
   }
 }
 

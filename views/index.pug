@@ -1,14 +1,57 @@
 head
   link(rel="stylesheet" href="/styles.css")
   link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Questrial")
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
   script(src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript")
   title Free Code Camp API Project
 body
-  h1
+  h1 File Metadata Microservice
   div.container
+    h2 Try it out
+    br
+    br
+    small Limit 1 MB
+    br
     button.upload-button#upload-button
       label(for="file-input") Upload file
     input.file-input#file-input(type="file")
     button.submit-button#submit-button Submit
     div.file-display#file-name
+    div.error#error
   script(type="text/javascript" src="/client.js")
+  br
+  br
+  div.content
+    p This is a REST API microservice which will tell you the size of your file (bytes).
+    h2 Submitting a file:
+    h4 Example request:
+    div.code POST https://dcthetall-file-metadata.herokuapp.com/api/file/size
+    p with the following request body
+    div.code { "fileUrl": [file_as_base64_URL_string] }
+    h4 Example response:
+    div.code { "filename": "data/[epoch_time].[file_extension]" }
+    h2 Getting the file's size:
+    h4 Example request:
+    p Using the file name from the POST request response
+    div.code GET https://dcthetall-file-metadata.herokuapp.com/api/file/size?name=[file_name]
+    h4 Example response:
+    div.code { "size": [file_size_in_bytes] }
+    p Note that you can only request the size once per file.
+  div.signature
+    | Made with
+    |
+    i.fa.fa-heart
+    |
+    | by Dylan Cutler
+    img(src="/portrait.png")
+    br
+    a(href="https://github.com/DCtheTall" target="_blank")
+      i.fa.fa-github
+    a(href="https://freecodecamp.com/DCtheTall" target="_blank")
+      i.fa.fa-free-code-camp
+    a(href="https://codepen.io/DCtheTall" target="_blank")
+      i.fa.fa-codepen
+    a(href="https://www.linkedin.com/in/dylan-cutler-7b095568/" target="_blank")
+      i.fa.fa-linkedin
+    a(href="http://dylancutler.us" target="_blank")
+      i.fa.fa-globe
