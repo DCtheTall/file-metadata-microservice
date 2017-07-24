@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function putFileSize(req, res) {
+function postFileSize(req, res) {
   const { fileUrl } = req.body;
   const ext = fileUrl.split(':')[1].split('/')[1].split(';')[0];
   const bitmap = new Buffer(fileUrl, 'base64');
@@ -11,4 +11,4 @@ function putFileSize(req, res) {
   res.json({ filename });
 }
 
-module.exports = putFileSize;
+module.exports = postFileSize;
